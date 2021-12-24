@@ -1,0 +1,292 @@
+/* -------- Global -------- */
+body {
+    background-color: #EFF0F9;
+    color: #0A2145;
+    font-family: 'Sarabun', sans-serif;
+}
+.container {
+    background-color: #fff;
+    box-shadow: 0px 0px 5.3px rgba(0, 0, 0, 0.028), 0px 0px 17.9px rgba(0, 0, 0, 0.042), 0px 0px 80px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+/* -------- Type -------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 700;
+}
+h1 {font-size: 56px}
+h2 {font-size: 40px}
+h3 {font-size: 36px}
+
+@media only screen and (max-width: 1400px) {
+    h1 {font-size: 48px}
+    h2 {font-size: 36px}
+}
+@media only screen and (max-width: 1170px) {
+    h1 {font-size: 36px}
+    h2 {font-size: 36px}
+}
+/* -------- Buttons -------- */
+nav ul li {
+    padding: 10px 20px;
+}
+.btn {
+    height: 20px;
+    text-decoration: none;
+    color: #0A2145;
+}
+.btn-primary {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #FA7B6B;
+    color: #fff;
+	overflow: hidden;
+    position: relative;
+}
+.btn-link, .btn-link:active, .btn-link:visited {
+    color: #5D4DD9;
+}
+
+.btn-plain {
+    position: relative;
+}
+.btn-plain::before, .btn-plain::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #0A2145;
+    top: 100%;
+    left: 0;
+}
+
+.btn-plain::before {
+    content: '';
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.btn-plain:hover::before {
+    transform-origin: 0% 50%;
+    transform: scale3d(1, 1, 1);
+    transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
+}
+
+.btn-plain::after {
+    content: '';
+    top: calc(100% + 4px);
+    transform-origin: 0% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.btn-plain:hover::after {
+    transform-origin: 100% 50%;
+    transform: scale3d(1, 1, 1);
+    transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
+}
+
+.btn-primary span {
+	position: relative;
+	mix-blend-mode: hard-light;
+    color: #fff;
+}
+.btn-primary::before {
+	content: '';
+    position: absolute;
+	background-color: #5D4DD9;
+	width: 120%;
+    height: 100%;
+    top: 0;
+	left: -10%;
+	transform: skew(30deg);
+	transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+a:hover:before {
+	transform: translate3d(100%,0,0);
+}
+/* -------- Colors -------- */
+/* Sky Blue: #92E4EF */
+/* Deep Purple: #5D4DD9 */
+/* Peach: #FA7B6B */
+/* Tinted Gray: #C6C2E1 */
+/* Text: #0A2145 */
+/* Charcoal: #1E1E1E */
+
+
+
+/* -------- Checkboxes -------- */
+.checkboxes-container {
+    color: #C6C2E1;
+}
+.checkbox-input {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+.checkbox {
+    height: 7rem;
+    width: 7rem;
+    margin: 1rem;
+    padding: 0.4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%), inset 0 0 0 2px #C6C2E1;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+.checkbox-label {
+    margin: 1rem 1.5rem;
+}
+.checkbox:hover {
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%), inset 0 0 0 2px #5D4DD9;
+}
+.checkbox.checked {
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%), inset 0 0 0 2px #5D4DD9;
+    color: #5D4DD9;
+}
+.checkbox img.icon {
+    height: 3rem;
+    width: 3rem;
+    margin-bottom: 1rem;
+}
+.checkbox .check-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 12px;
+    display: flex;
+    place-content: center;
+    align-content: center;
+    position: absolute;
+    left: 0.4rem;
+    top: 0.4rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.35s ease;
+}
+.checkbox:hover .check-circle {
+    transform: scale(1);
+    opacity: 1;
+    background-color: none;
+    box-shadow: inset 0 0 0 2px #C6C2E1;
+}
+.checkbox .icon {
+    transition: all 0.35s ease;
+}
+.checkbox.checked .icon {
+    filter: brightness(0) saturate(100%) invert(34%) sepia(74%) saturate(4068%) hue-rotate(236deg) brightness(87%) contrast(94%);
+}
+.checkbox.checked .check-circle {
+    background-color: #5D4DD9;
+    box-shadow: none;
+    transform: scale(1);
+    opacity: 1;
+}
+.checkbox-input:focus ~ .checkbox {
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%), inset 0 0 0 2px #5d4dd9, 0 0 0 4px rgb(93 77 217 / 45%);
+}
+.checkmark {
+    width: 60%;
+}
+
+/* -------- Popup -------- */
+.surprise-popup {
+    transition: all 0.3s ease-out;
+    color: #0A2145;
+    width: 600px;
+    margin: -60px auto;
+    background-color: #fff;
+    z-index: 100;
+    box-shadow: 0 0 5px #000;
+    border-radius: 20px;
+    text-align: center;
+    position: absolute;
+    padding: 20px 50px;
+    line-height: 1.2;
+}
+.surprise-popup.inactive {
+    transform: scale(0);
+}
+.surprise-popup.active {
+    transform: scale(1);
+}
+
+
+/* -------- Other -------- */
+.logo {
+    width: 50px;
+}
+
+#landing_splash {
+    height: 780px;
+    overflow: hidden;
+}
+#landing_splash header {
+    width: 560px;
+}
+#landing_splash header h1 {
+    line-height: 1.2;
+}
+#landing_splash header p {
+    line-height: 1.3;
+    font-size: 20px;
+    width: 80%;
+}
+
+#landing_splash header span {
+    background: url(Images/stroke-small.png) no-repeat 0px 73px;
+    background-size: contain;
+    padding: 20px;
+    margin: -20px;
+}
+#landing_splash img.splash-1 {
+    width: 49vw;
+    border-radius: 30px;
+    padding: 0;
+    position: relative;
+    bottom: -30px;
+    margin: 30px;
+    transform: rotate(-15deg);
+}
+#landing_splash span.splash-1 {
+    background-image: url(Images/splash1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 60%;
+    min-width: 500px;
+    height: 700px;
+    border-radius: 30px;
+    padding: 0;
+    margin: 30px;
+    transform: rotate(-15deg);
+    align-self: end; 
+}
+
+.check-out-prices {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+body main.container {
+    padding-bottom:40vh
+}
